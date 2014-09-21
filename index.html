@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UpRunner</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>UpRunner</h1>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+	        <h3>What skils do you want to learn? </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <form action='./list.html' method='GET'>
+			    <div class="large-6 medium-6 columns">
+			      <input id="checkbox1" type="checkbox" data-chal="couch"><label for="checkbox1">Couch to 5k</label>
+            <br>
+			      <input id="checkbox2" type="checkbox" data-chal="lift"><label for="checkbox2">Lifting 100 pounds</label>
+            <br>
+            <input id="checkbox3" type="checkbox" data-chal="span"><label for="checkbox3">Learn Spanish</label>
+            <br>
+            <input id="checkbox4" type="checkbox" data-chal="jap"><label for="checkbox4">Learn Japanese Cooking</label>
+            <br>
+            <input id="checkbox5" type="checkbox" data-chal="guitar"><label for="checkbox5">Learn Guitar</label>
+            <br>
+            <!-- <a href="/cal.html/#/" id="button1" class="small button">Learn Skill</a> -->
+            <input type='submit' text='submit' name='submit' class='button'>
+            <br/>
+			    </div>
+				</form>
+    </div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+
+
+    </script>
+    <script src="habite.js"/>
+  </body>
+</html>
