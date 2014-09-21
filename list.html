@@ -38,8 +38,9 @@
     <div class="columns medium-1 home-holder">
       <a href="/" class="home"><i class="fa fa-home"></i></a>
     </div>
-    <div class="columns medium-4 name-holder">
-      <h1 style="color: white;">HABITE</h1>
+    <div class="columns medium-6 name-holder right">
+      <center><h1 style="color: white;">HABITE</h1></center>
+      <center><h4>temp</h4></center>
     </div>
   </div>
   <div class="calander-slider row">  
@@ -53,6 +54,8 @@
     <script>
       $(document).foundation();
 
+      
+    
       var QueryString = function () {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
@@ -74,6 +77,9 @@
         } 
           return query_string;
       } ();
+
+      var title = QueryString.file.split('%2C')[1].split('+').join(' ')
+      $('.name-holder h4').html(title)
 
       function populateCalander(data, fn) {
         var week_count = 0;
@@ -100,11 +106,10 @@
         
       }
 
-      $.getJSON( "./json/"+QueryString.file, function( data ) {
+      $.getJSON( "./json/"+QueryString.file.split('%')[0], function( data ) {
         addCalanders(data)
         populateCalander(data, function() {
           $('.calander-slider').slick({
-            dots: true,
             arrows: true,
             infinite: false
           });
