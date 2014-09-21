@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UpRunner</title>
+    <title>Habite</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.6/slick.css">
     <link rel="stylesheet" type="text/css" href="/css/clippy.css" media="all">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700,400,300' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -21,11 +23,23 @@
 </script>
 
   <div class="row heading">
-    <div class="columns medium-2 week-holder right">
-      <h3>Week</h3><span id='week'>1</span>
+    <div class="columns medium-2 week-holder score-holder right">
+      <p>Week: <span id='week'>1</span></p>
+      <p>Score: <span id='score'>0</span></p>
     </div>
-    <div class="columns medium-2 score-holder right">
-      <h3>Score</h3><span id='score'>0</span>
+    <div class="columns medium-2 progress-holder right">
+      <h3>Progress</h3>
+      <span id='score'>
+        <div class="progress success radius round">
+          <span class="meter" style="width: 0%"></span>
+        </div>
+      </span>
+    </div>
+    <div class="columns medium-1 home-holder">
+      <a href="/" class="home"><i class="fa fa-home"></i></a>
+    </div>
+    <div class="columns medium-4 name-holder">
+      <h1 style="color: white;">HABITE</h1>
     </div>
   </div>
   <div class="calander-slider row">  
@@ -38,6 +52,29 @@
     <script src="/js/clippy.min.js"></script>
     <script>
       $(document).foundation();
+
+      var QueryString = function () {
+        // This function is anonymous, is executed immediately and 
+        // the return value is assigned to QueryString!
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+          var pair = vars[i].split("=");
+            // If first entry with this name
+          if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = pair[1];
+            // If second entry with this name
+          } else if (typeof query_string[pair[0]] === "string") {
+            var arr = [ query_string[pair[0]], pair[1] ];
+            query_string[pair[0]] = arr;
+          } else {
+            query_string[pair[0]].push(pair[1]);
+          }
+        } 
+          return query_string;
+      } ();
+
       function populateCalander(data, fn) {
         var week_count = 0;
          for (week in data) {
@@ -63,7 +100,7 @@
         
       }
 
-      $.getJSON( "./json/running.json", function( data ) {
+      $.getJSON( "./json/"+QueryString.file, function( data ) {
         addCalanders(data)
         populateCalander(data, function() {
           $('.calander-slider').slick({
@@ -78,6 +115,7 @@
             if (!canProgress($('.calander-slider').slickCurrentSlide())) {
                $('.slick-next').hide()
             }
+            $('#week').html($('.calander-slider').slickCurrentSlide() + 1)
           })
           $('.slick-prev').click(function() {
             $('.slick-next').show()
@@ -86,7 +124,11 @@
             
 
           $('input').click(function() {
-            //console.log($('input').length);
+            if ($(this)[0].checked) {
+              window.dispatchEvent(new Event('checkboxed'));
+            } else {
+              window.dispatchEvent(new Event('uncheckboxed'));
+            }
             var checked = 0
             var total = 0
             var current_slide = $('.calander-slider').slickCurrentSlide() + 1
@@ -97,6 +139,13 @@
                 checked++
               }
             }
+
+            var progress = parseInt(checked/total*100)+'%'
+            $('.meter').css('width', progress)
+            if (progress === '100%') {
+              alert("congrats, you finished your lesson.")
+            }
+
             $('#week').html(current_slide)
             $('#score').html(checked)
 
@@ -111,7 +160,22 @@
       clippy.load('Merlin', function(agent) {
         // Do anything with the loaded agent
         agent.show();
-      });
+        agent.speak("I believe in you!");
+        agent.play('Greet')
+        window.addEventListener('checkboxed', function (e) { 
+          agent.stop()
+          agent.play('Congratulate_2')
+        }, false);
+        window.addEventListener('doneweek', function (e) { 
+          agent.stop()
+          agent.play('Congratulate')
+          agent.speak("Time for you to move on! Congratulations");
+        }, false);
+        window.addEventListener('uncheckboxed', function (e) { 
+          agent.stop()
+          agent.play('Sad')
+        }, false);
+      }); 
 
       
 
@@ -123,6 +187,7 @@
             return false
           } 
         }
+        window.dispatchEvent(new Event('doneweek'));
         return true
       }
 

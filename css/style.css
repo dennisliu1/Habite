@@ -2,7 +2,7 @@
   background: #3498db;
 }
 .calander .columns {
-  height: 200px;
+  height: 310px;
   background-color: white;
   border: solid 2px #3498db;
   -webkit-box-sizing: border-box;
@@ -27,12 +27,13 @@
   list-style: none;
   list-style-type: none;
   text-indent: -5px;
-  padding-top: 5px;
-  line-height: 0px;
 }
 
 .tasks li input {
+  margin: 0px;
   margin-right: 5px;
+  padding: 0px;
+
 }
 
 .calander {
@@ -40,6 +41,45 @@
 }
 
 .score-holder, .week-holder {
-  background-color: #A9D0F5;
+  text-align: center;
   margin: 2px;
+}
+
+.home i {
+  font-size: 30px;
+  color: white;
+  padding: 10px;
+  opacity: 0.5;
+  margin-top: 15px;
+}
+
+.home i:hover {
+  opacity: 0.8;
+
+}
+
+.name-holder h1 {
+  font-family: 'Oswald', sans-serif;
+  margin-top: 10px;
+}
+
+.progress-holder h3 {
+  margin-top: 10px;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.week-holder {
+  margin-top: 8px;
+}
+
+.week-holder p {
+  color: white;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
 }
