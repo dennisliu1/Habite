@@ -1,0 +1,38 @@
+{
+	"0": {
+		"0": ["<a href=\"http://zetcode.com/gui/pyqt4/introduction/\">introduction</a>"],
+		"1": ["Rest"],
+		"2": ["<a href=\"http://zetcode.com/gui/pyqt4/firstprograms/\">firstprograms</a>"],
+		"3": ["Rest"],
+		"4": ["<a href=\"http://zetcode.com/gui/pyqt4/menusandtoolbars/\">menusandtoolbars</a>"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"1": {
+		"0": ["<a href=\"http://zetcode.com/gui/pyqt4/layoutmanagement/\">layoutmanagement</a>"],
+		"1": ["Rest"],
+		"2": ["<a href=\"http://zetcode.com/gui/pyqt4/eventsandsignals/\">eventsandsignals</a>"],
+		"3": ["Rest"],
+		"4": ["<a href=\"http://zetcode.com/gui/pyqt4/dialogs/\">dialogs</a>"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"2": {
+		"0": ["<a href=\"http://zetcode.com/gui/pyqt4/widgets/\">widgets</a>"],
+		"1": ["Rest"],
+		"2": ["<a href=\"http://zetcode.com/gui/pyqt4/widgets2/\">widgets2</a>"],
+		"3": ["Rest"],
+		"4": ["<a href=\"http://zetcode.com/gui/pyqt4/dragdrop/\">dragdrop</a>"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"3": {
+		"0": ["<a href=\"http://zetcode.com/gui/pyqt4/drawing/\">drawing</a>"],
+		"1": ["Rest"],
+		"2": ["<a href=\"http://zetcode.com/gui/pyqt4/customwidgets/\">customwidgets</a>"],
+		"3": ["Rest"],
+		"4": ["<a href=\"http://zetcode.com/gui/pyqt4/thetetrisgame/\">thetetrisgame</a>"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	}
+}

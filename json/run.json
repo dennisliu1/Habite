@@ -1,0 +1,38 @@
+{
+	"0": {
+		"0": ["Alternate 60sec jog/90 sec walk, 20 minutes total."],
+		"1": ["Rest"],
+		"2": ["Alternate 60sec jog/90 sec walk, 20 minutes total"],
+		"3": ["Rest"],
+		"4": ["Alternate 60sec jog/90 sec walk, 20 minutes total."],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"1": {
+		"0": ["Alternate 90sec jog/2min walk, 20 minutes total."],
+		"1": ["Rest"],
+		"2": ["Alternate 90sec jog/2min walk, 20 minutes total"],
+		"3": ["Rest"],
+		"4": ["Alternate 90sec jog/2min walk, 20 minutes total."],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"2": {
+		"0": ["2reps of: Jog 200 yards, Walk 200 yards, Jog 400 yards, Walk 400 yards"],
+		"1": ["Rest"],
+		"2": ["2reps of: Jog 200 yards, Walk 200 yards, Jog 400 yards, Walk 400 yards"],
+		"3": ["Rest"],
+		"4": ["2reps of: Jog 200 yards, Walk 200 yards, Jog 400 yards, Walk 400 yards"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	},
+	"3": {
+		"0": ["5min. warmup, then:Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)Walk 1/4 mile (or 2-1/2 minutes)Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)"],
+		"1": ["Rest"],
+		"2": ["5min. warmup, then:Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)Walk 1/4 mile (or 2-1/2 minutes)Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)"],
+		"3": ["Rest"],
+		"4": ["5min. warmup, then:Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)Walk 1/4 mile (or 2-1/2 minutes)Jog 1/4 mile (or 3 minutes)Walk 1/8 mile (or 90 seconds)Jog 1/2 mile (or 5 minutes)"],
+		"5": ["Rest"],
+		"6": ["Rest"]
+	}
+}
