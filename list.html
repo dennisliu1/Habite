@@ -142,16 +142,19 @@
 
             var progress = parseInt(checked/total*100)+'%'
             $('.meter').css('width', progress)
-            if (progress === '100%') {
-              alert("congrats, you finished your lesson.")
-            }
+            
 
             $('#week').html(current_slide)
             $('#score').html(checked)
 
-            if (canProgress($('.calander-slider').slickCurrentSlide())) {
+
+            if (progress === '100%') {
+              window.dispatchEvent(new Event('donechal'));
+            } else if (canProgress($('.calander-slider').slickCurrentSlide())) {
               $('.slick-next').show()
             }
+
+
           })
         })
         
@@ -175,6 +178,11 @@
           agent.stop()
           agent.play('Sad')
         }, false);
+         window.addEventListener('donechal', function (e) { 
+          agent.stop()
+          agent.moveTo(parseInt($(window).width()/2), parseInt($(window).height()/2))
+          agent.speak("Congratulations! You're so cool! It hurts to see you go, but you have a bright future ahead of you, kiddo. ");
+         }, false);
       }); 
 
       
