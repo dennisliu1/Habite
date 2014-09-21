@@ -1,6 +1,11 @@
 .html,body {
   background: #3498db;
 }
+
+#home-body {
+  display: -webkit-flex;
+  display: flex;
+}
 .calander .columns {
   height: 310px;
   background-color: white;
@@ -89,4 +94,47 @@
   margin: 0px;
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
+}
+
+.landing h1{
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 180px;
+}
+
+.landing h3{
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  margin-top: -25px;
+  margin-bottom: 35px;
+  z-index: 2;
+}
+
+label {
+ color: white;
+ font-size: 25px;
+}
+
+input.button {
+  margin-top: 20px;
+  z-index: 2;
+}
+
+i.big-leaf{
+  font-size: 1000px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: white;
+  opacity: 0.3;
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  margin: auto;
+  position: relative;
+  z-index: 99;
 }
