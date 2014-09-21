@@ -57,8 +57,8 @@
       function addCalanders(data, fn) {
         var weeknum = 0
         for (week in data) {
-          console.log('hello')
-          $('.calander-slider').append('<div class="calander" data-weeknum="0"><div class="columns medium-3 end"><center><h3>Monday</h3></center><div class="line"></div><ul class="tasks" data-daynum="0"></ul></div><div class="columns medium-3 end"><center><h3>Tuesday</h3></center><div class="line"></div><ul class="tasks" data-daynum="1"></ul></div><div class="columns medium-3 end"><center><h3>Wednesday</h3></center><div class="line"></div><ul class="tasks" data-daynum="2"></ul></div><div class="columns medium-3 end"><center><h3>Thursday</h3></center><div class="line"></div><ul class="tasks" data-daynum="3"></ul></div><div class="columns medium-3 end"><center><h3>Friday</h3></center><div class="line"></div><ul class="tasks" data-daynum="4"></ul></div><div class="columns medium-3 end"><center><h3>Saturday</h3></center><div class="line"></div><ul class="tasks" data-daynum="5"></ul></div><div class="columns medium-3 end"><center><h3>Sunday</h3></center><div class="line"></div><ul class="tasks" data-daynum="6"></ul></div><div class="columns medium-3 end" style="background:#ccc"></div></div>')
+          $('.calander-slider').append('<div class="calander" data-weeknum="'+weeknum+'"><div class="columns medium-3 end"><center><h3>Monday</h3></center><div class="line"></div><ul class="tasks" data-daynum="0"></ul></div><div class="columns medium-3 end"><center><h3>Tuesday</h3></center><div class="line"></div><ul class="tasks" data-daynum="1"></ul></div><div class="columns medium-3 end"><center><h3>Wednesday</h3></center><div class="line"></div><ul class="tasks" data-daynum="2"></ul></div><div class="columns medium-3 end"><center><h3>Thursday</h3></center><div class="line"></div><ul class="tasks" data-daynum="3"></ul></div><div class="columns medium-3 end"><center><h3>Friday</h3></center><div class="line"></div><ul class="tasks" data-daynum="4"></ul></div><div class="columns medium-3 end"><center><h3>Saturday</h3></center><div class="line"></div><ul class="tasks" data-daynum="5"></ul></div><div class="columns medium-3 end"><center><h3>Sunday</h3></center><div class="line"></div><ul class="tasks" data-daynum="6"></ul></div><div class="columns medium-3 end" style="background:#ccc"></div></div>')
+          weeknum++
         }
         
       }
@@ -71,6 +71,39 @@
             arrows: true,
             infinite: false
           });
+
+
+          $('.slick-next').click(function() {
+            //console.log($('.calander-slider').slickCurrentSlide())
+            if (!canProgress($('.calander-slider').slickCurrentSlide())) {
+               $('.slick-next').hide()
+            }
+          })
+          $('.slick-prev').click(function() {
+            $('.slick-next').show()
+          })
+          $('.slick-next').hide()
+            
+
+          $('input').click(function() {
+            //console.log($('input').length);
+            var checked = 0
+            var total = 0
+            var current_slide = $('.calander-slider').slickCurrentSlide() + 1
+            for (var i = 0 ; i < $('input').length ; i++) {
+              total++;
+
+              if ($('input')[i].checked) {
+                checked++
+              }
+            }
+            $('#week').html(current_slide)
+            $('#score').html(checked)
+
+            if (canProgress($('.calander-slider').slickCurrentSlide())) {
+              $('.slick-next').show()
+            }
+          })
         })
         
       });
@@ -80,30 +113,17 @@
         agent.show();
       });
 
-      $('html').click(function() {
-        //console.log($('input').length);
-        var checked = 0
-        var total = 0
-        var current_slide = $('.calander-slider').slickCurrentSlide() + 1
-        for (var i = 0 ; i < $('input').length ; i++) {
-          total++;
+      
 
-          if ($('input')[i].checked) {
-            checked++
-          }
-        }
-        $('#week').html(current_slide)
-        $('#score').html(checked)
-      })
-
-
-      $('.slick-next').on('click',function() {
-        console.log('blah')
-        canProgress($('.calander-slider').slickCurrentSlide() + 1)
-
-      })
       function canProgress(weeknum) {
-        console.log(weeknum)
+        ul_list = $('.calander[data-weeknum='+weeknum+'] .columns ul li input')
+        //console.log('fuck', ul_list)
+        for (var i = 0 ; i < ul_list.length ; i++) {
+          if (!ul_list[i].checked) {
+            return false
+          } 
+        }
+        return true
       }
 
     </script>
